@@ -4,7 +4,7 @@ require File.expand_path('../lib/pkg/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Scott Gonyea"]
   gem.email         = ["sgonyea@truecar.com"]
-  gem.description   = %q{PKG turns your app into an rpm/deb package.}
+  gem.description   = %q{PKG turns your app into an rpm/deb package. At the moment, only rpm is supported.}
   gem.summary       = %q{PKG turns your app into an rpm/deb}
   gem.homepage      = ""
 
@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "pkg"
   gem.require_paths = ["lib"]
-  gem.version       = Pkg::VERSION
+  gem.version       = PKG::VERSION
 end
