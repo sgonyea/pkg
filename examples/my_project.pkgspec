@@ -1,0 +1,46 @@
+# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/rpm/version', __FILE__)
+
+# For a custom temp path:
+# PKG.tmp_path = "/foo/bar"
+
+# To disable Bundler:
+# RPM.use_bundler = false
+# -- Note, you're on your own for packaging any gems, etc.
+
+PKG::Specification.new do |rpm|
+  pkg.homepage    = "https://github.com/sgonyea/pkg"
+  pkg.summary     = %q{MyProject is a special project!}
+  pkg.description = <<-DESC
+    MyProject will revolutionize the widget buying process! In fact, it will shit money!
+  DESC
+
+  pkg.executables = `git ls-files -- bin/*`.split("\n")
+  pkg.files       = `git ls-files`.split("\n")
+  pkg.name        = "PKG"
+  pkg.version     = MyProject::VERSION
+
+  pkg.group   = "Development/Ruby"
+  pkg.license = "Distributable"
+
+  # If you have package dependencies, you may:
+  # pkg.add_package_requirement "thrift", ">= 0.7.0"
+
+  # If you want to add other dependent source files:
+  # pkg.add_source "/path/to/some/file"
+  # pkg.add_source "/some/dir/glob/**/*.rb"
+  # -- aliased as "pkg.add_files"
+
+  # If you would like to enable / disable destination packages, do it via:
+  # pkg.rpm = true/false (default: true)
+  # pkg.deb = true/false (default: true)
+
+  # If you would like to use something other than the default templates:
+  # pkg.templates = ["fedora", "opensuse"]
+  # -- Specifying templates, as above, will output two files:  my_project.fedora.rpm / my_project.opensuse.rpm
+  # -- This overrides both .rpm and .deb if either is set to false.
+
+  # You may override default assumptions:
+  # pkg.build_root  = "/path/to/build/root"
+  # pkg.build_arch  = "noarch"
+end

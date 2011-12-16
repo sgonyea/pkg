@@ -1,0 +1,9 @@
+# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/rpm/version', __FILE__)
+
+gemspec
+
+PKG::Specification.new do |rpm|
+  pkg.group   = "Development/Ruby"
+  pkg.license = "Distributable"
+end
