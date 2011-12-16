@@ -40,6 +40,10 @@ PKG::Specification.new do |rpm|
   # -- Specifying templates, as above, will output two files:  my_project.fedora.rpm / my_project.opensuse.rpm
   # -- This overrides both .rpm and .deb if either is set to false.
 
+  # You can add before / after install steps
+  # pkg.add_pre_install_step  "rsync -a /etc/rvmrc /some/etc/"  # Also, add_before_
+  # pkg.add_post_install_step "rsync -a /etc/rvmrc /some/etc/"  # and,  add_after_
+
   # You may override default assumptions:
   # pkg.build_root  = "/path/to/build/root"
   # pkg.build_arch  = "noarch"
